@@ -1,6 +1,6 @@
 # CalibRAG
 
-## Calibration-Guided Retrieval-Augmented Generation
+## Calibrated Claim-Level Verification Retrieval-Augmented Generation
 
 CalibRAG is a research-oriented Retrieval-Augmented Generation (RAG) framework designed to improve the reliability and grounding of generated answers through **claim-level verification, Natural Language Inference (NLI), evidence sufficiency estimation, and verification-guided retrieval**.
 
