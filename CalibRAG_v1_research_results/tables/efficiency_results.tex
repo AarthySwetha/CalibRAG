@@ -1,0 +1,17 @@
+\begin{table}
+\caption{Efficiency comparison: runtime, GPU memory, and retrieval rounds.}
+\label{tab:efficiency_results}
+\begin{tabular}{lccc}
+\toprule
+model & Runtime (s) & GPU Memory (GB) & Retrieval Rounds \\
+\midrule
+Vanilla RAG & 223.682 & -- & 1.000 \\
+CRAG & 226.500 & -- & 1.852 \\
+AdaKG-RAG (single) & 746.027 & -- & 1.000 \\
+AdaKG-RAG (multi) & 765.157 & -- & 1.048 \\
+Adaptive RAG & 972.611 & -- & 0.626 \\
+Self-RAG & 2303.427 & -- & 1.735 \\
+CalibRAG (Ours) & -- & -- & 1.874 \\
+\bottomrule
+\end{tabular}
+\end{table}

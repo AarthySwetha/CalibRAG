@@ -1,0 +1,8 @@
+model,Hallucination Rate (proxy),Unsupported Claim Rate,Verification Success Rate
+CalibRAG (Ours),0.037,0.30724174653887115,0.746
+AdaKG-RAG (single),0.047,,1.0
+AdaKG-RAG (multi),0.048,,0.98
+Vanilla RAG,0.05,,
+Self-RAG,0.078,,0.681
+CRAG,0.078,,0.574
+Adaptive RAG,0.426,,0.992

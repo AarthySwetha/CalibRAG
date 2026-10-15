@@ -1,0 +1,2 @@
+Generator Backbone,EM,F1,Note
+Qwen/Qwen2.5-1.5B-Instruct,0.288,0.4374457576020545,Single backbone used throughout (fixed by design for fair cross-baseline comparison). Multi-backbone comparison (e.g. 3B/7B generators) not run — recommended future work.

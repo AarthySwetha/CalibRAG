@@ -1,0 +1,8 @@
+model,avg_retrieval_rounds,avg_latency_seconds,total_runtime_seconds,peak_gpu_memory_gb,gpu_memory_note
+vanilla_rag,1.0,0.22368180418014527,223.68180418014526,,not instrumented for this run; GPUMemoryTracker added for research-mode run
+crag,1.852,0.22649986028671265,226.49986028671265,,not instrumented for this run; GPUMemoryTracker added for research-mode run
+adakg_rag_single,1.0,0.7460273571014404,746.0273571014404,,not instrumented for this run; GPUMemoryTracker added for research-mode run
+adakg_rag_multiround,1.048,0.7651574530601502,765.1574530601501,,not instrumented for this run; GPUMemoryTracker added for research-mode run
+adaptive_rag,0.626,0.972610659122467,972.610659122467,,not instrumented for this run; GPUMemoryTracker added for research-mode run
+self_rag,1.735,2.303426630020142,2303.4266300201416,,not instrumented for this run; GPUMemoryTracker added for research-mode run
+calibrag,1.874,,,,not instrumented for this run; GPUMemoryTracker added for research-mode run

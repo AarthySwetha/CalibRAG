@@ -1,0 +1,138 @@
+{
+  "experiment_name": "CalibRAG_v1_research",
+  "run_mode": "research",
+  "dataset": {
+    "name": "hotpotqa/hotpot_qa",
+    "config": "distractor",
+    "split": "validation",
+    "num_questions_evaluated": 1000
+  },
+  "models_compared": [
+    "Vanilla RAG",
+    "AdaKG-RAG (single)",
+    "AdaKG-RAG (multi)",
+    "Self-RAG",
+    "CRAG",
+    "Adaptive RAG",
+    "CalibRAG (Ours)"
+  ],
+  "results_by_model": [
+    {
+      "model": "CalibRAG (Ours)",
+      "EM": 0.288,
+      "F1": 0.4374457576020545,
+      "SP-F1": 0.4316531193007199,
+      "ECE": 0.5428847883061847,
+      "Brier": 0.5218038436225163,
+      "Latency (s)": NaN,
+      "Retrieval Rounds": 1.874
+    },
+    {
+      "model": "AdaKG-RAG (multi)",
+      "EM": 0.283,
+      "F1": 0.4291372185965687,
+      "SP-F1": 0.25813282262868076,
+      "ECE": 0.7019599999999999,
+      "Brier": 0.6971641999999999,
+      "Latency (s)": 0.7651574530601502,
+      "Retrieval Rounds": 1.048
+    },
+    {
+      "model": "Vanilla RAG",
+      "EM": 0.277,
+      "F1": 0.4250956179471329,
+      "SP-F1": 0.25813282262868076,
+      "ECE": NaN,
+      "Brier": NaN,
+      "Latency (s)": 0.22368180418014527,
+      "Retrieval Rounds": 1.0
+    },
+    {
+      "model": "CRAG",
+      "EM": 0.282,
+      "F1": 0.4244546016062478,
+      "SP-F1": 0.3915307659787603,
+      "ECE": 0.3951191092489884,
+      "Brier": 0.40741109296623834,
+      "Latency (s)": 0.22649986028671265,
+      "Retrieval Rounds": 1.852
+    },
+    {
+      "model": "AdaKG-RAG (single)",
+      "EM": 0.278,
+      "F1": 0.42020128031070725,
+      "SP-F1": 0.25813282262868076,
+      "ECE": 0.6923,
+      "Brier": 0.6895438,
+      "Latency (s)": 0.7460273571014404,
+      "Retrieval Rounds": 1.0
+    },
+    {
+      "model": "Self-RAG",
+      "EM": 0.259,
+      "F1": 0.4078893413390087,
+      "SP-F1": 0.32490794622135516,
+      "ECE": 0.6060000000000001,
+      "Brier": 0.606,
+      "Latency (s)": 2.303426630020142,
+      "Retrieval Rounds": 1.735
+    },
+    {
+      "model": "Adaptive RAG",
+      "EM": 0.189,
+      "F1": 0.32137966133359375,
+      "SP-F1": 0.1600669377891817,
+      "ECE": 0.696,
+      "Brier": 0.696,
+      "Latency (s)": 0.972610659122467,
+      "Retrieval Rounds": 0.626
+    }
+  ],
+  "statistical_significance_summary": {
+    "em": "2/6 baselines beaten significantly (p<0.05)",
+    "f1": "2/6 baselines beaten significantly (p<0.05)",
+    "sf_f1": "6/6 baselines beaten significantly (p<0.05)"
+  },
+  "best_configuration": {
+    "model": "CalibRAG (Ours)",
+    "em": 0.288,
+    "f1": 0.4374457576020545,
+    "is_calibrag": true,
+    "note": "CalibRAG achieved the best F1 in this run."
+  },
+  "generator_backbone": "Qwen/Qwen2.5-1.5B-Instruct",
+  "embedding_model": "sentence-transformers/all-mpnet-base-v2",
+  "cross_encoder_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "nli_model": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+  "random_seed": 42,
+  "experiment_duration": {
+    "start": "2026-08-09T11:59:11.447872",
+    "end": "2026-08-10T09:22:14.556885",
+    "duration_human": "21:23:03.109013"
+  },
+  "hardware": {
+    "python_version": "3.11.11",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "torch_version": "2.7.0+cu126",
+    "cuda_available": true,
+    "cuda_version": "12.6",
+    "transformers_version": "4.57.6",
+    "sentence_transformers_version": "5.6.1",
+    "datasets_version": "5.0.1",
+    "faiss_version": "1.14.1",
+    "cpu_count_logical": 64,
+    "cpu_count_physical": 64,
+    "ram_total_gb": 251.5,
+    "gpu_name": "NVIDIA L4",
+    "gpu_total_memory_gb": 22.0,
+    "nvidia_smi_summary": "NVIDIA L4, 550.144.03, 23034 MiB\nNVIDIA L4, 550.144.03, 23034 MiB"
+  },
+  "known_limitations": [
+    "Self-RAG and CRAG use the shared generator LLM as critic/evaluator rather than separately fine-tuned models, per the original papers' design.",
+    "Adaptive RAG's complexity classifier is prompted, not a separately trained model.",
+    "Supporting-fact metrics for non-CalibRAG baselines use an unranked chunks-used proxy, not equivalent to CalibRAG's NLI-verified, ranked supporting facts.",
+    "Hallucination rate is a lexical-overlap proxy, not a semantic/entailment-based detector.",
+    "Backbone comparison (multiple generator sizes) was not conducted \u2014 single backbone used throughout by design, for fair cross-baseline comparison.",
+    "GPU memory usage was not instrumented for this run."
+  ]
+}

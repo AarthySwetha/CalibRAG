@@ -1,0 +1,17 @@
+\begin{table}
+\caption{Robustness comparison: lexical-overlap hallucination proxy, unsupported-claim rate (CalibRAG only), and verification success rate.}
+\label{tab:hallucination_analysis}
+\begin{tabular}{lccc}
+\toprule
+model & Hallucination Rate (proxy) & Unsupported Claim Rate & Verification Success Rate \\
+\midrule
+CalibRAG (Ours) & 0.037 & 0.307 & 0.746 \\
+AdaKG-RAG (single) & 0.047 & -- & 1.000 \\
+AdaKG-RAG (multi) & 0.048 & -- & 0.980 \\
+Vanilla RAG & 0.050 & -- & -- \\
+Self-RAG & 0.078 & -- & 0.681 \\
+CRAG & 0.078 & -- & 0.574 \\
+Adaptive RAG & 0.426 & -- & 0.992 \\
+\bottomrule
+\end{tabular}
+\end{table}
